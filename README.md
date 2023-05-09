@@ -5,6 +5,7 @@
     - [x]  By.id
     - [x]  By.name
     - [x]  By.cssSelector
+    - [x]  By.xpath
 - [x]  **Manipulação de Elementos**
     - [x]  click()
     - [x]  getText()
