@@ -13,7 +13,7 @@ public class CartPage {
         this.driver = driver;
         PageFactory.initElements(new AjaxElementLocatorFactory(driver, 5), this);
     }
-    @FindBy(id = "checkout")
+    @FindBy(xpath = "//button[contains(text(), 'Checkout')]")
     WebElement checkoutButton;
 
     public CheckoutPage clickCheckoutButton() {

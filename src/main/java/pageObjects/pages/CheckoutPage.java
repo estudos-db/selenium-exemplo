@@ -17,7 +17,7 @@ public class CheckoutPage {
     WebElement firstNameField;
     @FindBy(id = "last-name")
     WebElement lastNameField;
-    @FindBy(id = "postal-code")
+    @FindBy(xpath = "//input[@name='postalCode']")
     WebElement postalCodeField;
     @FindBy(id = "continue")
     WebElement continueButton;
