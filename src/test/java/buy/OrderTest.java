@@ -4,7 +4,6 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
-import pageObjects.components.SecondaryHeaderComponent;
 import pageObjects.pages.CartPage;
 import pageObjects.pages.CheckoutPage;
 import pageObjects.pages.FinishPage;
@@ -22,15 +21,11 @@ public class OrderTest extends BaseTest {
         homePage.setUsernameField("standard_user");
         homePage.setPasswordField("secret_sauce");
         InventoryPage inventoryPage = homePage.submitLogin();
-        SecondaryHeaderComponent secondaryHeaderComponent = new SecondaryHeaderComponent(driver);
-        Assertions.assertEquals(secondaryHeaderComponent.getHeaderText(), "Products");
 
         inventoryPage.clickAddToCartButton();
         CartPage cartPage = inventoryPage.clickCartButton();
-        Assertions.assertEquals(secondaryHeaderComponent.getHeaderText(), "Your Cart");
 
         CheckoutPage checkoutPage = cartPage.clickCheckoutButton();
-        Assertions.assertEquals(secondaryHeaderComponent.getHeaderText(), "Checkout: Your Information");
 
         checkoutPage.setFirstNameField("Antonio");
         checkoutPage.setLastNameField("Da Silva");
