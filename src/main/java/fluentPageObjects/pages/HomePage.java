@@ -1,4 +1,4 @@
-package pageObjects.pages;
+package fluentPageObjects.pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -7,11 +7,13 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 
 public class HomePage {
-    private WebDriver driver;
+    private final WebDriver driver;
+
     public HomePage (WebDriver driver){
         this.driver = driver;
         PageFactory.initElements(new AjaxElementLocatorFactory(driver, 5), this);
     }
+
     @FindBy(id = "user-name")
     WebElement username;
     @FindBy(name = "password")
@@ -19,16 +21,9 @@ public class HomePage {
     @FindBy(css = ".login-box .submit-button")
     WebElement loginButton;
 
-//    By usernameField = By.id("user-name");
-    public void setUsernameField(String username){
-//        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
-//        wait.until(ExpectedConditions.visibilityOfElementLocated(this.username));
+    public InventoryPage login(String username, String password){
         this.username.sendKeys(username);
-    }
-    public void setPasswordField(String password){
         this.password.sendKeys(password);
-    }
-    public InventoryPage submitLogin(){
         this.loginButton.click();
         return new InventoryPage(driver);
     }

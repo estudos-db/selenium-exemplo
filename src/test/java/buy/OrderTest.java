@@ -4,9 +4,12 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
-
 import pageObjects.components.SecondaryHeaderComponent;
-import pageObjects.pages.*;
+import pageObjects.pages.CartPage;
+import pageObjects.pages.CheckoutPage;
+import pageObjects.pages.FinishPage;
+import pageObjects.pages.HomePage;
+import pageObjects.pages.InventoryPage;
 import utils.BaseTest;
 
 public class OrderTest extends BaseTest {
