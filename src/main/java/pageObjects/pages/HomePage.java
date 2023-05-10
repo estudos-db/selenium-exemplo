@@ -28,8 +28,7 @@ public class HomePage {
     public void setPasswordField(String password){
         this.password.sendKeys(password);
     }
-    public InventoryPage submitLogin(){
+    public void submitLogin(){
         this.loginButton.click();
-        return new InventoryPage(driver);
     }
 }

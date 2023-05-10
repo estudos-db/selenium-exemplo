@@ -15,8 +15,7 @@ public class CartPage {
     @FindBy(xpath = "//button[contains(text(), 'Checkout')]")
     WebElement checkoutButton;
 
-    public CheckoutPage clickCheckoutButton() {
+    public void clickCheckoutButton() {
         this.checkoutButton.click();
-        return new CheckoutPage(driver);
     }
 }

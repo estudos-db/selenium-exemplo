@@ -20,18 +20,23 @@ public class OrderTest extends BaseTest {
         HomePage homePage = new HomePage(driver);
         homePage.setUsernameField("standard_user");
         homePage.setPasswordField("secret_sauce");
-        InventoryPage inventoryPage = homePage.submitLogin();
+        homePage.submitLogin();
 
+        InventoryPage inventoryPage = new InventoryPage(driver);
         inventoryPage.clickAddToCartButton();
-        CartPage cartPage = inventoryPage.clickCartButton();
+        inventoryPage.clickCartButton();
 
-        CheckoutPage checkoutPage = cartPage.clickCheckoutButton();
+        CartPage cartPage = new CartPage(driver);
+        cartPage.clickCheckoutButton();
 
+        CheckoutPage checkoutPage = new CheckoutPage(driver);
         checkoutPage.setFirstNameField("Antonio");
         checkoutPage.setLastNameField("Da Silva");
         checkoutPage.setPostalCodeField("9602785");
         checkoutPage.clickCheckoutButton();
-        FinishPage finishPage = checkoutPage.clickFinishButton();
+        checkoutPage.clickFinishButton();
+
+        FinishPage finishPage = new FinishPage(driver);
         Assertions.assertEquals(finishPage.getSuccessMessage(), "Thank you for your order!");
     }
 }
